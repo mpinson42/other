@@ -72,7 +72,7 @@ int main()
 	ft_is_ok();
 
 	ft_putstr("lancer les commande suivant : \n");
-	ft_putnbr("alias | grep norminette && alias | grep leaks && alias | grep gcc && alias | grep nm");
+	ft_putstr("alias | grep norminette && alias | grep leaks && alias | grep gcc && alias | grep nm");
 
 	return(0);
 }
