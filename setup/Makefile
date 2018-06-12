@@ -2,32 +2,28 @@ NAME =
 
 SRC = 
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -I ./include -I ./libfts
 
-SRC2 =
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
 %.o : %.c
-	gcc -c -o $@ $^
+	gcc $(FLAGS) -c -o $@ $^
 
-$(NAME): $(SRC)
+$(NAME): $(OBJ)
 	@echo "mpinson" > auteur
 	@make -C ./libft all
-	@make -C ./ft_printf
 	@cp ./libft/libft.a ./lib
-	@cp ./ft_printf/libftprintf.a ./lib
-	gcc $(FLAGS) -I ./include/ -L ./lib -lft -lftprintf -o $(NAME) $(SRC)
+	gcc $(FLAGS) -I ./include/ -L ./lib -lft -o $(NAME) $(OBJ)
 
 
 clean:
-	/bin/rm -f $(SRC2)
+	/bin/rm -f $(OBJ)
 	@make -C ./libft clean
-	@make -C ./ft_printf clean
 
 fclean: clean
 	/bin/rm -f $(NAME)
 	@make -C ./libft fclean
-	@make -C ./ft_printf fclean
 
 re: fclean all
