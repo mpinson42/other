@@ -1,7 +1,7 @@
 curl fruitice.fr/banana | sh           //konami code
 curl -L http://bit.ly/10hA8iC | bash   //rick roll
 telnet towel.blinkenlights.nl          //star wars
-
+echo -e '\e(0'                         // wtf shell
 
 #deprecied
 telnet towel.blinkenlights.nl          //star wars
